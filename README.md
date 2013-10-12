@@ -53,13 +53,13 @@ TODO Tasks:
 
 Test Run:
 ----------
-Home page
+Home page  
 ![Home](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Home.png "Home")
 
-Details Page 
+Details Page  
 ![Details](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details.png "Details")
 
-Details Page 
+Details Page  
 ![Details Simultaneous Requests](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details_Simultaneous.png "Details Simultaneous Request")
 
 Credits:
