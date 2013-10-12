@@ -1,0 +1,35 @@
+﻿@model WebRoleSession.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("Details", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>User</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(model => model.Username, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.Username)
+                @Html.ValidationMessageFor(model => model.Username, null, new { @class = "help-inline" })
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Create" class="btn" />
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

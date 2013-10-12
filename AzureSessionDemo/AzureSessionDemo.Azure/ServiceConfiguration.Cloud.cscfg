@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ServiceConfiguration serviceName="AzureSessionDemo.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+    <Role name="WebRoleSession">
+        <Instances count="3" />
+        <ConfigurationSettings>
+        </ConfigurationSettings>
+    </Role>
+</ServiceConfiguration>

@@ -1,0 +1,31 @@
+﻿@model WebRoleSession.Models.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@if (Model != null)
+{
+    <fieldset>
+        <legend>User</legend>
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+        </dl>
+    </fieldset>
+}
+else
+{
+    <div>Welcome back <b>@ViewBag.Username</b></div>
+    
+    <div>(Instance Id : @ViewBag.Instance)</div>
+}
+<p>
+    @Html.ActionLink("Back to Index", "Index")
+</p>
