@@ -1,50 +1,50 @@
-Session Management in AzureWebsites using Azure Cache Service
+Session Management in Azure WebRoles using Azure Cache Service
 -----------
 
-Traditional ASP.Net developers can't imagine their life without the usage of Session State (either - InProc or State Server
-or SqlServer or Custom modes). Devs use this powerfull api not only to persist sensitive information on server, but also
-to tranfer data objects between across postbacks.
+Traditional ASP.Net developers can't imagine their life without the usage of Session Object (either - InProc or State Server
+or SqlServer or Custom modes). Devs use this powerfull api not only to persist sensitive information on server for some
+time intervals, but also to tranfer data objects across postbacks between different pages.
 
-Problems with session management arises when one go on to Webfarm (or typically multiple instances of web server), where
+Problems with session management arises when we go on to the Webfarm (or typically multiple instances of web server), especially where
 a typical load balancer comes in between the client and server farm. When a ClientA makes a first request, which is being
 routed to ServerA, then ServerA creates a session object. But what if simultaneous requests from ClientA goes to ServerB?
-As Session object in ServerA, there will be Null Object reference exception getting thrown.
+As Session object is in ServerA, there will be Null Object reference exception getting thrown.
 
 This problem can be solved by using Sticky sessions at Load Balancer level, which makes sure that all requests from ClientA
 will be routed to ONLY ServerA. Thereby preventing Null Object reference exceptions and giving us Data/Identity integrity.
 In my opinion this is a kind of bottlenect for scalable architecture (for which most of us approach cloud infrastructure).
 
-The main aim of this project is to provide a working scalable solution for session management in Windows Azure AzureWebsites
+The main aim of this project is to provide a working scalable solution for session management in Windows Azure WebRoles
 using distributed Azure Cache Service.
 
 Please follow below description of the project - 
 
 1. We create a Azure Cache Service in Azure Management Portal. Then we install Azure Cache nuget on the solution.
+2. As a next step, enable Custom Session Provider in Web.Config file.
 2. Next we create TWO Pages - Home and Detail.
 3. On Home page we have a TextBox to enter the name of the person visiting our site. Then we store the same name in the 
 Session object.
 4. We use the same session object on the Details page to display in HTML.
 5. On next consecutive requests to Details Page, user name is retrieved from Session object and will be displayer (until
 Session expiry).
-6. On Details page we also have Remove button, through which we can abandon the same session.
 
 Specialties:
 -------------
-1. There is no need for us to touch Load Balancer. So this gives us enough sacalability scope.
-2. Azure Cache is going to be on Hihn availability defined on it and it is distributed. We get more better control on 
+1. There is no need for us to program Load Balancer. So this gives us enough scaalability scope.
+2. Azure Cache is going to be on High availability setting defined on it and it is distributed. We get more better control on 
 expiry, eviction, High availability, notifications and size.
 
 
 Technical Stack:
 ---------------
-> 1. AzureWebsites
+> 1. Azure WebRole
 > 2. Azure Cache Service
 > 4. ASP.Net MVC4 Web Application
 
 Important Notes:
 -------------
-1. Azure configuration settings are havinf placeholders. Please replace config information with your own settings to make this solution work.
-	* Have a proper AzureWebsites Publish Profile credentials to deploy this solution.
+1. Azure configuration settings are having placeholders. Please replace config information with your own settings to make this solution work.
+	* Have a proper Azure WebRole Publish credentials to deploy this solution.
 	* Update Web.Config with Azure Cache specific credentials.
 
 TODO Tasks:
@@ -54,12 +54,13 @@ TODO Tasks:
 Test Run:
 ----------
 Home page
-![Test Iteration1](https://raw.github.com/DreamingDevs/large-file-upload-to-azure-blob-using-webapi/master/Images/tTest-Iteration1.png "Test 
-Iteration1")
+![Home](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Home.png "Home")
 
 Details Page 
-![Test Iteration2](https://raw.github.com/DreamingDevs/large-file-upload-to-azure-blob-using-webapi/master/Images/tTest-Iteration2.png "Test 
-Iteration2")
+![Details](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details.png "Details")
+
+Details Page 
+![Details Simultaneous Requests](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details_Simultaneous.png "Details Simultaneous Request")
 
 Credits:
 -----------
