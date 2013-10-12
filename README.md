@@ -2,8 +2,8 @@ Session Management in Azure WebRoles using Azure Cache Service
 -----------
 
 Traditional ASP.Net developers can't imagine their life without the usage of Session Object (either - InProc or State Server
-or SqlServer or Custom modes). Devs use this powerfull api not only to persist sensitive information on server for some
-time intervals, but also to tranfer data objects across postbacks between different pages.
+or SQL Server or Custom modes). Devs use this powerful API not only to persist sensitive information on server for some
+time intervals, but also to transfer data objects across postbacks between different pages.
 
 Problems with session management arises when we go on to the Webfarm (or typically multiple instances of web server), especially where
 a typical load balancer comes in between the client and server farm. When a ClientA makes a first request, which is being
@@ -12,7 +12,7 @@ As Session object is in ServerA, there will be Null Object reference exception g
 
 This problem can be solved by using Sticky sessions at Load Balancer level, which makes sure that all requests from ClientA
 will be routed to ONLY ServerA. Thereby preventing Null Object reference exceptions and giving us Data/Identity integrity.
-In my opinion this is a kind of bottlenect for scalable architecture (for which most of us approach cloud infrastructure).
+In my opinion this is a kind of bottleneck for scalable architecture (for which most of us approach cloud infrastructure).
 
 The main aim of this project is to provide a working scalable solution for session management in Windows Azure WebRoles
 using distributed Azure Cache Service.
@@ -20,7 +20,7 @@ using distributed Azure Cache Service.
 Please follow below description of the project - 
 
 1. We create a Azure Cache Service in Azure Management Portal. Then we install Azure Cache nuget on the solution.
-2. As a next step, enable Custom Session Provider in Web.Config file.
+2. As a next step, enable Custom Session Provider based on Azure Cache Service in Web.Config file.
 2. Next we create TWO Pages - Home and Detail.
 3. On Home page we have a TextBox to enter the name of the person visiting our site. Then we store the same name in the 
 Session object.
@@ -30,7 +30,7 @@ Session expiry).
 
 Specialties:
 -------------
-1. There is no need for us to program Load Balancer. So this gives us enough scaalability scope.
+1. There is no need for us to program Load Balancer. So this gives us enough scalability scope.
 2. Azure Cache is going to be on High availability setting defined on it and it is distributed. We get more better control on 
 expiry, eviction, High availability, notifications and size.
 3. For demo purpose, we displayed the ID of the role instance which is serving the response. So that we can clearly differentiate
@@ -66,7 +66,7 @@ Test Run:
 
 Credits:
 -----------
-> 1. Mohan (Code Contributor). Also do not forget to see contributors section. It is all their hardwork.
+> 1. Mohan (Code Contributor). Also do not forget to see contributors section. It is all their hard work.
 > 3. MSDN Documentation.
 
 Disclaimer:
