@@ -33,6 +33,8 @@ Specialties:
 1. There is no need for us to program Load Balancer. So this gives us enough scaalability scope.
 2. Azure Cache is going to be on High availability setting defined on it and it is distributed. We get more better control on 
 expiry, eviction, High availability, notifications and size.
+3. For demo purpose, we displayed the ID of the role instance which is serving the response. So that we can clearly differentiate
+that our Azure Cache is being utilized for persisting Session.
 
 
 Technical Stack:
@@ -53,13 +55,13 @@ TODO Tasks:
 
 Test Run:
 ----------
-Home page  
+**Home page**  
 ![Home](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Home.png "Home")
 
-Details Page  
+**Details Page**  
 ![Details](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details.png "Details")
 
-Details Page  
+**Details Page on Simultaneous Requests**  
 ![Details Simultaneous Requests](https://raw.github.com/DreamingDevs/Session-Management-in-Azure-Webroles-using-Azure-Cache-Service/master/Images/Details_Simultaneous.png "Details Simultaneous Request")
 
 Credits:
